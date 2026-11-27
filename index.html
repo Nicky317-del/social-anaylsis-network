@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Network Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <h2>SocialNet</h2>
+        <p class="side-label">MAIN MENU</p>
+
+        <a href="#dashboard">Dashboard</a>
+        <a href="#users">Manage Users</a>
+        <a href="#connections">Connections</a>
+        <a href="#algorithms">Graph Algorithms</a>
+        <a href="#recommendations">Recommendations</a>
+        <a href="#performance">Performance</a>
+    </aside>
+
+    <main class="main-content">
+
+        <header>
+            <div>
+                <h1>Social Network Analysis</h1>
+                <p>Explore connections and discover new friendships.</p>
+            </div>
+            <span class="status">● Network Active</span>
+        </header>
+
+        <section id="dashboard">
+            <h2>Dashboard Overview</h2>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <p>Total Users</p>
+                    <h2 id="totalUsers">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <p>Total Connections</p>
+                    <h2 id="totalConnections">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <p>Network Density</p>
+                    <h2 id="density">0%</h2>
+                </div>
+            </div>
+        </section>
+
+        <section id="users" class="panel">
+            <h2>Manage Users</h2>
+            <div class="form-row">
+                <input type="text" id="newUser" placeholder="Enter user name">
+                <button onclick="addUser()">Add User</button>
+            </div>
+        </section>
+
+        <section id="connections" class="panel">
+            <h2>Create Connection</h2>
+            <div class="form-row">
+                <input type="text" id="user1" placeholder="First user">
+                <input type="text" id="user2" placeholder="Second user">
+                <button onclick="addConnection()">Connect</button>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Social Network</h2>
+            <div id="networkDisplay" class="network-display">
+                Your network will appear here.
+            </div>
+        </section>
+
+        <section id="algorithms" class="panel">
+            <h2>Graph Algorithms</h2>
+
+            <input type="text" id="startUser" placeholder="Enter starting user">
+
+            <div class="button-row">
+                <button onclick="runAlgorithm('bfs')">Run BFS</button>
+                <button onclick="runAlgorithm('dfs')">Run DFS</button>
+            </div>
+
+            <div id="algorithmResult" class="result">
+                Algorithm results will appear here.
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Find Mutual Friends</h2>
+
+            <div class="form-row">
+                <input type="text" id="mutualUser1" placeholder="First user">
+                <input type="text" id="mutualUser2" placeholder="Second user">
+                <button onclick="findMutual()">Find</button>
+            </div>
+
+            <div id="mutualResult" class="result"></div>
+        </section>
+
+        <section class="panel">
+            <h2>Shortest Connection Path</h2>
+
+            <div class="form-row">
+                <input type="text" id="pathStart" placeholder="Starting user">
+                <input type="text" id="pathEnd" placeholder="Destination user">
+                <button onclick="findPath()">Find Path</button>
+            </div>
+
+            <div id="pathResult" class="result"></div>
+        </section>
+
+        <section id="recommendations" class="panel">
+            <h2>Friend Recommendations</h2>
+
+            <div class="form-row">
+                <input type="text" id="recommendUser" placeholder="Enter user name">
+                <button onclick="getRecommendations()">Recommend</button>
+            </div>
+
+            <div id="recommendResult" class="result"></div>
+        </section>
+
+        <section id="performance" class="panel">
+            <h2>Performance Analysis</h2>
+            <p>Compare BFS and DFS execution times using your Python performance module.</p>
+            <button onclick="alert('Performance analysis will be connected in the next step!')">
+                Performance Analysis
+            </button>
+        </section>
+
+        <footer>
+            Social Network Analysis Project | Built with Python and Flask
+        </footer>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
